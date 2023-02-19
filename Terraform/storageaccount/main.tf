@@ -20,11 +20,10 @@ resource "azurerm_storage_account" "testmrphead626" {
   account_tier             = "Standard"
   account_replication_type = "GRS" 
   min_tls_version          = "TLS1_2"
-}
 
-resource "azurerm_storage_account_network_rules" "network_rules" {
-  storage_account_id = azurerm_storage_account.testmrphead626.id
+  network_rules {
+     default_action             = "Deny"
+     bypass                     = ["Metrics", "AzureServices"]
+   }
 
-  default_action             = "Deny"
-  bypass                     = "Azure Services"
 }
