@@ -26,5 +26,5 @@ resource "azurerm_storage_account_network_rules" "network_rules" {
   storage_account_id = azurerm_storage_account.testmrphead626.id
 
   default_action             = "Deny"
-  bypass                     = ["Azure Services"]
+  bypass                     = "Azure Services"
 }
