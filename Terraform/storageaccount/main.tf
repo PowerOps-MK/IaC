@@ -22,9 +22,9 @@ resource "azurerm_storage_account" "testmrphead626" {
   min_tls_version          = "TLS1_2"
 }
 
-resource "azurerm_storage_account_network_rules" "rules" {
+resource "azurerm_storage_account_network_rules" "network_rules" {
   storage_account_id = azurerm_storage_account.testmrphead626.id
 
   default_action             = "Deny"
-  bypass                     = ["AzureServices"]
+  bypass                     = ['Azure Services']
 }
