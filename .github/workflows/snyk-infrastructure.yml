@@ -25,7 +25,7 @@ on:
 
 env:
   # Path of the deploy files
-  DEPLOY_PATH: ARM
+  DEPLOY_PATH: ARM/storageaccount
 
 permissions:
   contents: read
