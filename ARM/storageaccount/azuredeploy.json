@@ -25,10 +25,12 @@
       "location": "[parameters('location')]",
       "kind": "StorageV2",
       "sku": {
-        "name": "Standard_LRS"
+        "name": "Standard_GRS"
       },
       "properties": {
-        "accessTier": "Hot"
+        "accessTier": "Hot",
+        "minimumTlsVersion": "TLS1_2",
+        "supportsHttpsTrafficOnly": true
       }
     }
   ]
