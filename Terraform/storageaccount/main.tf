@@ -1,6 +1,16 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.44.1"
+    }
+  }
+
+  required_version = ">= 1.3.9"
+}
+
 provider "azurerm" {
-  version = "=3.44.1"
-  features {} #This is required for v2 of the provider even if empty or plan will fail
+  features {}
 }
 
 resource "azurerm_resource_group" "Test-RG" {
