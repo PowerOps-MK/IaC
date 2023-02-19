@@ -1,24 +1,12 @@
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 2.13.0"
-    }
-  }
+resource "azurerm_resource_group" "Test-RG" {
+  name     = "Test-RG"
+  location = "West Europe"
 }
 
-provider "docker" {}
-
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = false
-}
-
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.latest
-  name  = "tutorial"
-  ports {
-    internal = 80
-    external = 8000
-  }
+resource "azurerm_storage_account" "testmrphead626" {
+  name                     = "testmrphead626"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS" 
 }
