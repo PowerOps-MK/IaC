@@ -24,6 +24,5 @@ resource "azurerm_storage_account" "testmrphead626" {
   network_rules {
      default_action             = "Deny"
      bypass                     = ["Metrics", "AzureServices"]
-   }
-
+  }
 }
