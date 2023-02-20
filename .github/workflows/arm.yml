@@ -1,6 +1,6 @@
 ---
-# This is a basic workflow to deploy to a local Kubernetes (k3s) cluster
-name: "Python CI/CD"
+# This is a basic workflow to deploy to a ARM template to Azure
+name: "ARM CI/CD"
 
 # Controls when the workflow will run
 on:
