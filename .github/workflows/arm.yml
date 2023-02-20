@@ -1,0 +1,62 @@
+---
+# This is a basic workflow to deploy to a local Kubernetes (k3s) cluster
+name: "Python CI/CD"
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events but only for the master branch
+  push:
+    branches: [master, main]
+    paths:
+      - "ARM/**"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Ensures only 1 workflow is running
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+# Set environment variables
+env:
+  # Use folder for ARM template
+  FOLDER: ./ARM/storageaccount
+
+# Permissions needed to run the workflow (top level)
+permissions:
+  contents: read
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # Test the configuration (YAML) files 
+  test:
+    # The type of runner that the job will run on
+    runs-on: ${{ matrix.os }}
+    # Setup defaults for the steps within a job
+    defaults:
+      run:
+        working-directory: ${{ env.FOLDER }}
+
+    # Setup matrix for OS and Python
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c #v3.3.0
+
+      # Login to Azure
+      - name: Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+ 
+      # Deploy the ARM template to Azure
+      - name: Deploy template
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: Test-RG
+          template: ${{ env.FOLDER }}/azuredeploy.json
+          parameters: ${{ env.FOLDER }}/azuredeploy.parameters.json
