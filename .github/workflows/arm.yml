@@ -51,13 +51,13 @@ jobs:
 
       # Login to Azure
       - name: Login
-        uses: azure/login@v1
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 #v1.4.7
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
  
       # Deploy the ARM template to Azure
       - name: Deploy template
-        uses: azure/arm-deploy@v1
+        uses: azure/arm-deploy@65ae74fb7aec7c680c88ef456811f353adae4d06 #v1.0.9
         with:
           resourceGroupName: Test-RG
           template: ${{ env.FOLDER }}/azuredeploy.json
