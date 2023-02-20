@@ -18,7 +18,11 @@ resource "azurerm_virtual_network" "vnet" {
   address_space               = ["10.0.0.0/16"]
   resource_group_name         = "Test-RG"
   location                    = "West Europe"
-  ddos_protection_plan.enable = true
+  
+  ddos_protection_plan {
+    id     = ""
+    enable = true
+  }
 }
 
 resource "azurerm_subnet" "subnet" {
