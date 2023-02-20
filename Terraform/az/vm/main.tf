@@ -32,6 +32,29 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes         = ["10.0.0.0/24"]
 }
 
+resource "azurerm_network_security_group" "nsg" {
+  name                = "test-nsg"
+  resource_group_name = "Test-RG"
+  location            = "West Europe"
+
+  security_rule {
+    name                       = "test123"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
+resource "azurerm_subnet_network_security_group_association" "subnet_nsg" {
+  subnet_id                 = azurerm_subnet.subnet.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
+
 resource "azurerm_network_interface" "nic" {
   name                     = "vmtest-nic"
   resource_group_name      = "Test-RG"
