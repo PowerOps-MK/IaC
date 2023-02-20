@@ -25,7 +25,7 @@ on:
 
 env:
   # Path of the deploy files
-  DEPLOY_PATH: Terraform/storageaccount
+  DEPLOY_PATH: Terraform/az/vm
 
 permissions:
   contents: read
