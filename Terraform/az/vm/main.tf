@@ -28,7 +28,7 @@ resource "azurerm_subnet" "subnet" {
 }
 
 resource "azurerm_network_interface" "nic" {
-  name                     = "testvm-nic"
+  name                     = "vmtest-nic"
   resource_group_name      = "Test-RG"
   location                 = "West Europe"
 
