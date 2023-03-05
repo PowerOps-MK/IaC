@@ -53,7 +53,7 @@ jobs:
     - name: Replace      
       uses: powerops-mk/replace-action@main
       with:
-        path: "github/repo"
+        path: "Terraform/github/repo"
         json: ${{ secrets.TERRAFORM_GITHUB_TOKEN }}
         find: "XX_TOKEN"
 
