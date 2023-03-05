@@ -32,6 +32,6 @@ data "github_repository_file" "source_linter" {
 resource "github_repository_file" "linter" {
   repository          = github_repository.repo.name
   branch              = "main"
-  file                = "super-linter.yml"
+  file                = var.linter_file
   content             = data.github_repository_file.source_linter.content
 }
