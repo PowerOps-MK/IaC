@@ -30,9 +30,9 @@ resource "github_branch_default" "default" {
 }
 
 data "github_repository_file" "source_linter" {
-  repository          = "Coding"
+  repository          = "IaC"
   branch              = github_branch_default.default.branch
-  file                = "render.yaml"
+  file                = var.linter_file
 }
 
 resource "github_repository_file" "linter" {
