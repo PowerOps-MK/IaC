@@ -8,5 +8,15 @@ terraform {
 }
 
 provider "github" {
-  token = `GITHUB_TOKEN`
+  token = "GITHUB_TOKEN"
+}
+
+resource "github_repository" "repo" {
+  name               = "var.repo_name
+  description        = "Terraform test"
+  visibility         = "public"
+  has_issues         = true
+  auto_init          = true
+  license_template   = "mit"
+  gitignore_template = "Python"
 }
