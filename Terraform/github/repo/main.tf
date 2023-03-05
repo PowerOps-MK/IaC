@@ -28,3 +28,10 @@ resource "github_branch_default" "default" {
   branch     = var.branch_name
   rename     = true
 }
+
+resource "github_repository_file" "linter" {
+  repository          = github_repository.repo.name
+  branch              = github_branch_default.default.name
+  file                = ".github/workflows/super-linter.yml"
+  content             = "---"
+}
