@@ -3,3 +3,10 @@ variable "repo_name" {
   type        = string
   default     = "Test Terraform Repo"
 }
+
+variable "token" {
+  description = "The token for Github"
+  type        = string
+  sensitive   = true
+  default     = XX_TOKEN
+}
