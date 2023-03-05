@@ -14,7 +14,7 @@ variable "repo_name" {
 variable "repo_type" {
   description = "The visibility type of the repository"
   type        = string
-  default     = "private"
+  default     = "Private"
 }
 
 variable "linter_file" {
