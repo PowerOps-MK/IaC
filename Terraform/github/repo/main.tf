@@ -16,8 +16,6 @@ resource "github_repository" "repo" {
   description        = "Terraform test"
   visibility         = var.repo_type
   has_issues         = true
-  has_wiki           = true
-  has_projects       = true
   auto_init          = true
   license_template   = "lgpl-3.0"
   gitignore_template = "Python"
