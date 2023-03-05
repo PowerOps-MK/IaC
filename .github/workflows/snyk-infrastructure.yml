@@ -25,7 +25,7 @@ on:
 
 env:
   # Path of the deploy files
-  DEPLOY_PATH: Terraform/github/repo
+  # DEPLOY_PATH: Terraform/github/repo
 
 permissions:
   contents: read
@@ -54,7 +54,7 @@ jobs:
           # Add the path to the configuration file that you would like to test.
           # For example `deployment.yaml` for a Kubernetes deployment manifest
           # or `main.tf` for a Terraform configuration file
-          file: ${{ env.DEPLOY_PATH }}
+          # file: ${{ env.DEPLOY_PATH }}
           args: --report
 
       - name: Upload result to GitHub Code Scanning
