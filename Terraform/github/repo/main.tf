@@ -14,7 +14,7 @@ provider "github" {
 resource "github_repository" "repo" {
   name               = var.repo_name
   description        = "Terraform test"
-  visibility         = "public"
+  visibility         = var.repo_type
   has_issues         = true
   has_wiki           = true
   has_projects       = true
