@@ -16,6 +16,8 @@ resource "github_repository" "repo" {
   description        = "Terraform test"
   visibility         = "public"
   has_issues         = true
+  has_wiki           = true
+  has_projects       = true
   auto_init          = true
   license_template   = "lgpl-3.0"
   gitignore_template = "Python"
@@ -23,6 +25,6 @@ resource "github_repository" "repo" {
 
 resource "github_branch_default" "default" {
   repository = github_repository.repo.name
-  branch     = "master"
+  branch     = var.branch_name
   rename     = true
 }
