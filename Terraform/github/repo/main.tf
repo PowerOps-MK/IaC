@@ -32,6 +32,6 @@ resource "github_branch_default" "default" {
 resource "github_repository_file" "linter" {
   repository          = github_repository.repo.name
   branch              = github_branch_default.default.branch
-  file                = ".github/workflows/super-linter.yml"
+  file                = "super-linter.yml"
   content             = "---"
 }
