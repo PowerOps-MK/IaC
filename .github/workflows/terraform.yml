@@ -49,13 +49,13 @@ jobs:
   #      creds: ${{ secrets.AZURE_CREDENTIALS }}
  
 
-      # Find and replace the String in files
-      - name: Replace      
-        uses: powerops-mk/replace-action@main
-        with:
-          path: "github/repo"
-          json: ${{ secrets.TERRAFORM_GITHUB_TOKEN }}
-          find: "XX_TOKEN"
+    # Find and replace the String in files
+    - name: Replace      
+      uses: powerops-mk/replace-action@main
+      with:
+        path: "github/repo"
+        json: ${{ secrets.TERRAFORM_GITHUB_TOKEN }}
+        find: "XX_TOKEN"
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
