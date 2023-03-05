@@ -17,6 +17,12 @@ resource "github_repository" "repo" {
   visibility         = "public"
   has_issues         = true
   auto_init          = true
-  license_template   = "mit"
+  license_template   = "lgpl-3.0"
   gitignore_template = "Python"
+}
+
+resource "github_branch_default" "default" {
+  repository = github_repository.repo.name
+  branch     = "master"
+  rename     = true
 }
