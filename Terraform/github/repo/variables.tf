@@ -1,5 +1,5 @@
-variable "storageaccountName" {
-  description = "The Name of the sa"
+variable "repo_name" {
+  description = "The Name of the repository"
   type        = string
-  default     = "testmrphead626"
+  default     = "Test Repo"
 }
