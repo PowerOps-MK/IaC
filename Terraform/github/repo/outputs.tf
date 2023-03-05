@@ -1,3 +1,3 @@
-output "Storage_Account_Name" {
-  value = azurerm_storage_account.testmrphead626.name
+output "repo_name" {
+  value = github_repository.repo.name
 }
