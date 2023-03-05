@@ -11,6 +11,12 @@ variable "repo_name" {
   default     = "Test-terraform"
 }
 
+variable "repo_type" {
+  description = "The visibility type of the repository"
+  type        = string
+  default     = "private"
+}
+
 variable "branch_name" {
   description = "The Name of the default branch"
   type        = string
