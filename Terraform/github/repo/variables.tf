@@ -8,5 +8,5 @@ variable "token" {
   description = "The token for Github"
   type        = string
   sensitive   = true
-  default     = "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"
+  default     = XX_TOKEN
 }
