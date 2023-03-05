@@ -12,7 +12,7 @@ provider "github" {
 }
 
 resource "github_repository" "repo" {
-  name               = "var.repo_name
+  name               = var.repo_name
   description        = "Terraform test"
   visibility         = "public"
   has_issues         = true
