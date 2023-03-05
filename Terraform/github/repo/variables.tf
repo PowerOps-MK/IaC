@@ -17,12 +17,6 @@ variable "repo_type" {
   default     = "private"
 }
 
-variable "branch_name" {
-  description = "The Name of the default branch"
-  type        = string
-  default     = "master"
-}
-
 variable "linter_file" {
   description = "The filepath of the linter workflow"
   type        = string
