@@ -23,21 +23,15 @@ resource "github_repository" "repo" {
   gitignore_template = "Python"
 }
 
-resource "github_branch_default" "default" {
-  repository = github_repository.repo.name
-  branch     = var.branch_name
-  rename     = true
-}
-
 data "github_repository_file" "source_linter" {
   repository          = "IaC"
-  branch              = github_branch_default.default.branch
+  branch              = "main"
   file                = var.linter_file
 }
 
 resource "github_repository_file" "linter" {
   repository          = github_repository.repo.name
-  branch              = github_branch_default.default.branch
+  branch              = "main"
   file                = "super-linter.yml"
   content             = data.github_repository_file.source_linter.content
 }
