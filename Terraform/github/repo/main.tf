@@ -29,9 +29,15 @@ resource "github_branch_default" "default" {
   rename     = true
 }
 
+data "github_repository_file" "source_linter" {
+  repository          = "Coding"
+  branch              = github_branch_default.default.branch
+  file                = "render.yaml"
+}
+
 resource "github_repository_file" "linter" {
   repository          = github_repository.repo.name
   branch              = github_branch_default.default.branch
   file                = "super-linter.yml"
-  content             = "---"
+  content             = github_repository_file.source_linter.content
 }
