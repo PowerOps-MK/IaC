@@ -22,3 +22,9 @@ variable "branch_name" {
   type        = string
   default     = "master"
 }
+
+variable "linter_file" {
+  description = "The file of the linter workflow"
+  type        = string
+  default     = ".github/workflows/super-linter.yml"
+}
