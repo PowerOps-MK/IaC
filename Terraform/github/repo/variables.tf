@@ -13,8 +13,8 @@ variable "repo_name" {
 
 variable "repo_type" {
   description = "The visibility type of the repository"
-  type        = string
-  default     = "private"
+  type        = boolean
+  default     = true
 }
 
 variable "linter_file" {
