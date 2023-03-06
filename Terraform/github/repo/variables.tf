@@ -11,12 +11,6 @@ variable "repo_name" {
   default     = "Test-terraform"
 }
 
-variable "repo_type" {
-  description = "The visibility type of the repository"
-  type        = bool
-  default     = true
-}
-
 variable "linter_file" {
   description = "The filepath of the linter workflow"
   type        = string
