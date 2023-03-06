@@ -13,7 +13,7 @@ variable "repo_name" {
 
 variable "repo_type" {
   description = "The visibility type of the repository"
-  type        = boolean
+  type        = bool
   default     = true
 }
 
