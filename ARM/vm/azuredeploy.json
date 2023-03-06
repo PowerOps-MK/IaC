@@ -10,6 +10,13 @@
       }
     },
 
+    "adminName": {
+      "type": "string",
+      "defaultValue": "admin8263",
+      "metadata": {
+        "description": "Specifies the username of the Azure vm."
+      }
+    },
     "virtualNetworkName": {
       "type": "string",
       "defaultValue": "test-vnet",
@@ -155,7 +162,7 @@
         },
         "osProfile": {
           "computerName": "[parameters('vmName')]",
-          "adminUsername": "adminuser",
+          "adminUsername": "[parameters('adminName')]",
           "adminPassword": ""
         }
       },
