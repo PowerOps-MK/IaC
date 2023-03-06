@@ -14,7 +14,7 @@ provider "github" {
 resource "github_repository" "repo" {
   name               = var.repo_name
   description        = "A private-visible repository created by Terraform"
-  visibility         = "private"
+  visibility         = "public" #"private"
   has_issues         = true
   auto_init          = true
   license_template   = "lgpl-3.0"
