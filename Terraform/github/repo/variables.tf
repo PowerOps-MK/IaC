@@ -8,7 +8,7 @@ variable "token" {
 variable "repo_name" {
   description = "The Name of the repository"
   type        = string
-  default     = "Ansible Unifi"
+  default     = "ansible-unifi"
 }
 
 variable "linter_file" {
