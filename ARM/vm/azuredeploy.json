@@ -9,7 +9,13 @@
         "description": "Specifies the name of the Azure vm."
       }
     },
-
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS1_v2",
+      "metadata": {
+        "description": "Specifies the size of the Azure vm."
+      }
+    },
     "adminName": {
       "type": "string",
       "defaultValue": "admin8263",
@@ -135,7 +141,7 @@
       "location": "[parameters('location')]",
       "properties": {
         "hardwareProfile": {
-          "vmSize": "Standard_DS1_v2"
+          "vmSize": "[parameters('vmSize')]"
         },
         "storageProfile": {
           "osDisk": {
