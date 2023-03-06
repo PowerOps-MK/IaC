@@ -25,6 +25,7 @@
     },
     "adminPassword": {
       "type": "securestring",
+      "defaultValue": "",
       "metadata": {
         "description": "Specifies the password of the Azure vm."
       }
