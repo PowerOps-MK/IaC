@@ -8,7 +8,7 @@ variable "token" {
 variable "repo_name" {
   description = "The Name of the repository"
   type        = string
-  default     = "Test-terraform"
+  default     = "Ansible Unifi"
 }
 
 variable "linter_file" {
