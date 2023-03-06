@@ -23,9 +23,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-#env:
+env:
   # Path of the deploy files
-  # DEPLOY_PATH: Terraform/github/repo
+  DEPLOY_PATH: Terraform/github/repo
 
 permissions:
   contents: read
@@ -54,14 +54,14 @@ jobs:
           # Add the path to the configuration file that you would like to test.
           # For example `deployment.yaml` for a Kubernetes deployment manifest
           # or `main.tf` for a Terraform configuration file
-          # file: ${{ env.DEPLOY_PATH }}
+          file: ${{ env.DEPLOY_PATH }}
           args: --report
 
       - name: Install dependencies
-        run: ls ./Terraform/github/repo
+        run: ls Terraform/github/repo
 
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@17573ee1cc1b9d061760f3a006fc4aac4f944fd5 #v2.2.4
         with:
-          #sarif_file: snyk.sarif
-          sarif_file: ./
+          sarif_file: snyk.sarif
+          #sarif_file: ./
