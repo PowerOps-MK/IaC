@@ -476,6 +476,7 @@
         "secureBootEnabled": "[parameters('secureBoot')]",
         "vTpmEnabled": "[parameters('vTPM')]"
       },
+	  "encryptionAtHost": true,
       "securityType": "[parameters('securityType')]"
     },
     "managedDiskSecurityProfile": {
